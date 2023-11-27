@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../assets/TastyBowl.png'
 import './Nav.css'
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import SearchIcon from '@mui/icons-material/Search';
+import Button from '@mui/material/Button';
 
 function Nav() {
+
+    const [input, setInput] = useState("")
+
+    const Click = (e) =>{
+        console.log(input)
+    }
   return (
     <nav>
         <div className='Nav__Left'>
@@ -11,7 +22,29 @@ function Nav() {
             </figure>
         </div>
         <div className='Nav__Right'>
-
+            <div className='Nav_Icons'>
+                <a href='#'>
+                <div className='Nav_Icon'>
+                    <InstagramIcon/>
+                </div>
+                </a>
+                <a href='#'>
+                <div className='Nav_Icon'>
+                    <TwitterIcon/>
+                </div>
+                </a>
+                <a href='#'>
+                <div className='Nav_Icon'>
+                    <FacebookIcon/>
+                </div>
+                </a>
+            </div>
+            <div className='Nav_SearchBar'>
+                <input className='SearchBox' placeholder='Search for a recipe' value={input} onChange={(e) => setInput(e.target.value)}></input>
+                <Button className='SearchLogo' type='submit' color="secondary" onClick={Click}><SearchIcon  fontSize='medium'/></Button>
+                
+                
+            </div>
         </div>
     </nav>
   )
