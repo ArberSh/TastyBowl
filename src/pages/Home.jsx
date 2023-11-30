@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import './Home.css'
-import SearchIcon from '@mui/icons-material/Search';
-
+import { Link } from "react-router-dom";
+import Results from './Results';
 
 function Home() {
-
+  
   const [Input,SetInput] = useState("");
-
+  
   const Click = (e) => {
     console.log(Input)
   } 
   
+  Results(Input)  
   return (
     <div className='Home'>
       <h1>Find a recipe</h1>
@@ -18,7 +19,9 @@ function Home() {
       
         <input value={Input} onChange={(e) => SetInput(e.target.value)} placeholder='Search for a recipe'></input>
      <div className='SearchBar'>
+      <Link to="/search">
       <button onClick={Click}>Search it!</button>
+      </Link>
       <button style={{marginLeft:'4vw'}} onClick={Click}>Random Food</button>
       </div>
     </div>
