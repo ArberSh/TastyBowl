@@ -8,15 +8,14 @@
 .Food_Container{
     background-color: antiquewhite;
     width: 100%;
-    max-width:20vw;
-    height: 40vh;
+    max-width:14rem;
+ 
     padding: 14px;
     border-radius: 16px;
 }
-.Food_Image > img{
+.Food_Image img{
+    object-fit: cover;
     width: 100%;
     border-radius: 16px;
-    max-width: 16vw;
     height: 30vh;
-    contain: content;
 }
