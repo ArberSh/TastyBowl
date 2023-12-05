@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './Results.css';
 import axios from 'axios'
+import Food from '../components/Food';
 
-function Results() {
+function Results(term) {
     const [posts,setPosts] = useState([]);
    
     useEffect(() => {
         async function fetchFood() {
             try{
-            const {data} = await axios.get(`https://www.themealdb.com/api/json/v1/1/random.php`)
-            setPosts(data)  
-            console.log(data)     
+            const {data} = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
+            setPosts(data.meals[0])  
         }
         catch(error) {
             console.log("Error" , error)
@@ -19,18 +19,12 @@ function Results() {
         fetchFood()
     },[]);
 
-    // console.log(posts)
+    console.log(posts.strMeal)
     return (
         <div className='Container'>
-        <div className='Food_Container'>
-            <div className='Food_Image'>
-                <img src='https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg' alt='Food'></img>
-            </div>
-            <div className='SmallDescription'>
-                <h2>{posts}
-                </h2>
-            </div>
-        </div>
+       <Food posts={posts}/>
+       <Food posts={posts}/>
+       <Food posts={posts}/>
     </div>  
     );
 }
