@@ -11,7 +11,7 @@ function App() {
       <Nav/>
       <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path='/search' element={<Results term={term}/>}/>
+      <Route path='/search/:term' element={<Results/>}/>
       </Routes>
     </div>
     </Router>

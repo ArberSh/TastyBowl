@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Food({posts}) {
-    console.log(posts.strMeal)
+function Food({element}) {
+    console.log(element.strMeal)
   return (
     <div>
         <div className='Food_Container'>
@@ -9,7 +9,7 @@ function Food({posts}) {
                 <img src='https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg' alt='Food'></img>
             </div>
             <div className='SmallDescription'>
-                <h2>{posts.strMeal}
+                <h2>{element.strMeal}
                 </h2>
             </div>
         </div>
