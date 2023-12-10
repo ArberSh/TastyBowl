@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+.ContainerDescription{
+    background-image: url(../assets/WoodWallpaper.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titleFood{
+    padding: 100px;
+    color: white;
+    font-size: 36px;
+    text-shadow: 2px 2px 2px #000000;
+}
