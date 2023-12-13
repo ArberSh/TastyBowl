@@ -11,7 +11,7 @@ function Description() {
         async function fetchFood() {
           try {
             const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${food}`);
-            setPosts(data[0].meals);
+            setPosts(data.meals[0]);
           } catch (error) {
             console.log('Error', error);
           }
@@ -25,18 +25,15 @@ function Description() {
 
   return (
     <div className='ContainerDescription'>
-        <div className='Container_Left'>
-        <h1 className='titleFood'>{posts[0].strMeal}</h1>
-        <img className='imageFood'>{posts[0].strMealThumb}</img>
-        </div>
-        <div className='Container_Right'>
-            <div className='Guide'>
-                <div className='Ingredients'>
-                    <h3>Ingredients</h3>
-                </div>
-                <div className='Steps'>
-                    <h3>Steps</h3>
-                </div>
+        <div className='Container_Up'>
+            <h1 className='titleFood'>{posts.strMeal}</h1>
+            <div className='row'>
+                <img style={{marginRight:"10rem"}} className='FoodImg' src={`${posts.strMealThumb}`}></img>
+                <div >
+                <h2>Ingredients</h2>
+                <ul >
+                    <li>CULLLLL PO THEMMM</li>
+                </ul></div>
             </div>
         </div>
     </div>
@@ -44,3 +41,18 @@ function Description() {
 }
 
 export default Description
+{/* <div className='Container_Up'>
+<h1 className='titleFood'>{posts.strMeal}</h1>
+<div className='row'>
+<img className='imageFood' src={`${posts.strMealThumb}`}></img>
+        <div className='Ingredients'>
+            <h3>Ingredients</h3>
+        </div>
+        </div>
+</div>
+<div className='Container_Down'>
+        <div className='Steps'>
+            <h3>Instructions</h3>
+            <p className='Instruction'>{posts.strInstructions}</p>
+        </div>
+</div> */}
