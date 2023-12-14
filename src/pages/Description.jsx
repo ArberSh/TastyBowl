@@ -19,40 +19,36 @@ function Description() {
         fetchFood();
       }, [food]);
 
+      const [Ingredients, setingredients] = useState();
+    for (let i = 1; i < 20; i++){
+      console.log("hello")
+    }
       useEffect(() => {
         console.log(posts);
-      }, [posts]);
-
+    }, [posts]);
+    
+    
   return (
     <div className='ContainerDescription'>
         <div className='Container_Up'>
             <h1 className='titleFood'>{posts.strMeal}</h1>
             <div className='row'>
                 <img style={{marginRight:"10rem"}} className='FoodImg' src={`${posts.strMealThumb}`}></img>
-                <div >
+                <div className='Ingredients' >
                 <h2>Ingredients</h2>
                 <ul >
-                    <li>CULLLLL PO THEMMM</li>
+                    <li>{posts.strIngredient}</li>
                 </ul></div>
             </div>
         </div>
+        <div className='Container_Down'>
+        <div className='Steps'>
+            <h3>Instructions</h3>
+            <p className='Instruction'>{posts.strInstructions}</p>
+        </div>
+</div> 
     </div>
   )
 }
 
 export default Description
-{/* <div className='Container_Up'>
-<h1 className='titleFood'>{posts.strMeal}</h1>
-<div className='row'>
-<img className='imageFood' src={`${posts.strMealThumb}`}></img>
-        <div className='Ingredients'>
-            <h3>Ingredients</h3>
-        </div>
-        </div>
-</div>
-<div className='Container_Down'>
-        <div className='Steps'>
-            <h3>Instructions</h3>
-            <p className='Instruction'>{posts.strInstructions}</p>
-        </div>
-</div> */}
