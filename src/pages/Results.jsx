@@ -8,9 +8,13 @@ function Results() {
   const [posts, setPosts] = useState([]);
 
   const { term } = useParams();
-  console.log(term);
+  console.log(term.length);
 
+  
+
+console.log(term)
   useEffect(() => {
+    
     async function fetchFood() {
       try {
         const { data } = await axios.get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`);
@@ -20,7 +24,8 @@ function Results() {
       }
     }
     fetchFood();
-  }, [term]);
+  }
+  , [term]);
 
   useEffect(() => {
     console.log(posts);

@@ -21,7 +21,7 @@ function Description() {
 
       const [Ingredients, setingredients] = useState();
     for (let i = 1; i < 20; i++){
-      console.log("hello")
+      console.log(posts.strIngredient`${i}`)
     }
       useEffect(() => {
         console.log(posts);
