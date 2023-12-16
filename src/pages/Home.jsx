@@ -2,11 +2,17 @@ import React, { useState,useEffect } from 'react';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [Input, SetInput] = useState('');
- 
+  const navigate = useNavigate();
   const Click = () => {
+    if(Input == 0){
+      console.log("error")
+    }else{
+      navigate(`/search/${Input}`)
+    }
     console.log(Input);
   };
 
@@ -39,11 +45,9 @@ function Home() {
 
       <input value={Input} onChange={(e) => SetInput(e.target.value)} placeholder='Search for a recipe'></input>
       <div className='SearchBar'>
-      <Link to={`/search/${Input}`}>
           <button onClick={Click}>Search it!</button>
-        </Link>
         <Link to={`/description/${foodName}`}>
-        <button style={{ marginLeft: '4vw' }} onClick={Click}>
+        <button style={{ marginLeft: '4vw' }}>
           Random Food
         </button></Link>
       </div>

@@ -6,13 +6,18 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const [input, setInput] = useState("");
-
-  const Click = (e) => {
+  const navigate = useNavigate();
+  const Click = () => {
+    if(input == 0){
+      console.log("error")
+    }else{
+      navigate(`/search/${input}`)
+    }
     console.log(input);
-    setInput("")
   };
   return (
     <nav style={{position: 'absolute', top: '0px', width:'100%'}}>
@@ -49,11 +54,9 @@ function Nav() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             ></input>
-            <Link to={`/search/${input}`}>
             <button className="SearchLogo" color="secondary" onClick={Click}>
               <SearchIcon fontSize="medium" />
             </button>
-            </Link>
           </div>
         </div>
       </div>

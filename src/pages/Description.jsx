@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function Description() {
     const [posts, setPosts] = useState([]);
+    const [ingredients, setIngredients] = useState([]);
     const { food } = useParams();
 
     useEffect(() => {
@@ -19,12 +20,21 @@ function Description() {
         fetchFood();
       }, [food]);
 
-      const [Ingredients, setingredients] = useState();
-    for (let i = 1; i < 20; i++){
-      console.log(posts.strIngredient`${i}`)
-    }
+    
       useEffect(() => {
-        console.log(posts);
+        if(posts && posts.strIngredient1) {
+            const newIngredients = []
+            for (let i = 1;i <= 20; i++){
+              const ingredient = posts[`strIngredient${i}`]
+              if (ingredient) {
+                newIngredients.push(ingredient)
+              } else {
+                break
+              }
+            }
+            setIngredients(newIngredients)
+          console.log(ingredients)
+        }
     }, [posts]);
     
     
@@ -35,9 +45,11 @@ function Description() {
             <div className='row'>
                 <img style={{marginRight:"10rem"}} className='FoodImg' src={`${posts.strMealThumb}`}></img>
                 <div className='Ingredients' >
-                <h2>Ingredients</h2>
+                <h2 className='IngredientsTitle'>Ingredients</h2>
                 <ul >
-                    <li>{posts.strIngredient}</li>
+                  {ingredients.map((ingredients,index)=>(
+                    <li key={index}>{ingredients}</li>
+                  ))}
                 </ul></div>
             </div>
         </div>

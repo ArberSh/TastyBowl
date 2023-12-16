@@ -14,7 +14,7 @@
 }
 
 .logo{
-    width: 110px;
+    width: 7rem;
 }
 
 .Nav__Right{
@@ -51,7 +51,7 @@
     padding-left: 10px;
     font-size: 14px;
 }
-
+.SearchLogo
 .SearchLogo{
     background-color: rgb(238, 238, 238);
     width: 4vw;
@@ -63,4 +63,16 @@
     border: none;
     cursor: pointer;
     color: black;
+}
+
+@media (max-width:460px){
+    .Nav_Icons{
+        display: none;
+    }
+    .SearchBox,.SearchLogo{
+        height: 2rem;
+    }
+    .SearchLogo{
+        width: 2rem;
+    }
 }

@@ -10,8 +10,9 @@ function Results() {
   const { term } = useParams();
   console.log(term.length);
 
-  
-
+  if(term == 0){
+    console.log("error")
+  }
 console.log(term)
   useEffect(() => {
     

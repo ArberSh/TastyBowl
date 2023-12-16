@@ -1,3 +1,6 @@
+*{
+    text-decoration: none;
+}
 .Container{
     background-image: url(../assets/WoodWallpaper.jpg);
     background-size: cover;
