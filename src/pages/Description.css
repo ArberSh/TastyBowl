@@ -1,4 +1,7 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 *{
+    
     margin: 0;
     padding: 0;
     box-sizing:border-box;
@@ -27,6 +30,7 @@
     font-size: 36px;
     text-shadow: 2px 2px 2px #ffffff;
     text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 
 .row{
@@ -38,13 +42,13 @@
 
 .Ingredients{
     margin-top: 0.8rem;
-    /* margin-right: 12rem; */
+    margin-right: 12rem;
 }
 
 .FoodImg{
-        margin: 1rem 1rem 1rem 1rem;
+        margin: 1rem 1rem 1rem 10%;
         width: 100%;
-        max-width: 18rem;
+        max-width: 40vh;
         max-height: 18rem;
         border-radius: 4px;
         border: 3px solid rgb(255, 214, 156);
@@ -55,12 +59,14 @@
 
 
 .IngredientsTitle{
-    font-size: 26px
+    font-size: 26px;
+    font-family: 'Poppins', sans-serif;
 }
 
 li{
     margin-left: 2vw;
-    font-size: 20px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .Container_Down{
@@ -77,6 +83,7 @@ li{
 h3{
     text-align: center;
     font-size: 36px;
+    font-family: 'Playfair Display', serif;
     font-weight: 100;
 }
 
@@ -84,24 +91,33 @@ h3{
     color: black;
     width: 90%;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     margin: auto;
+    font-family: 'Poppins', sans-serif;
 }
 
-@media(max-width:460px){
+@media(max-width:600px){
     .ContainerDescription{
         padding-top: 20%;
     }
     .row{
         display: block;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
     }
     .FoodImg{
         margin: 0;
-        margin-left: 2.5rem;
+        margin-left: 25%;
         width: 10rem;
     }
     .Ingredients{
         margin-left: 30%;
         width: 2rem;
+    }
+}
+@media(max-width:800px){
+    .row{
+        justify-content: none;
     }
 }

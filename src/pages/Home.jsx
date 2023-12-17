@@ -5,8 +5,14 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+
   const [Input, SetInput] = useState('');
   const navigate = useNavigate();
+  const Enter = (e) => {
+    if (e.key === "Enter") {
+      Click()
+    }
+  };
   const Click = () => {
     if(Input == 0){
       console.log("error")
@@ -17,7 +23,7 @@ function Home() {
   };
 
   const [food,setFood] = useState('')
-
+  
   useEffect(() => {
     async function fetchRandomFood() {
       try {
@@ -29,13 +35,13 @@ function Home() {
     }
     fetchRandomFood();
   }, []);
-
+  
   useEffect(() => {
     console.log(food.strMeal);
   }, [food]);
-
- const foodName = food.strMeal
-
+  
+  const foodName = food.strMeal
+  
   return (
     <div className='Home'>
       <h1>Find a recipe</h1>
@@ -43,9 +49,9 @@ function Home() {
         Find <span>+10,000 good & delicious</span> recipe and start your amazing journey healthy food with us
       </p>
 
-      <input value={Input} onChange={(e) => SetInput(e.target.value)} placeholder='Search for a recipe'></input>
+      <input value={Input} onKeyUp={Enter} onChange={(e) => SetInput(e.target.value)} placeholder='Search for a recipe'></input>
       <div className='SearchBar'>
-          <button onClick={Click}>Search it!</button>
+          <button  onClick={Click}>Search it!</button>
         <Link to={`/description/${foodName}`}>
         <button style={{ marginLeft: '4vw' }}>
           Random Food
